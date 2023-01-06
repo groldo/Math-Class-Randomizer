@@ -1,0 +1,14 @@
+---
+arithmetic:
+  min: 2
+  max: 10
+  difficulty: 1
+multiplication:
+  count: 8
+division:
+  count: 8
+area:
+  count: 2
+  difficulty: 1
+template: math_class_randomizer/templates/math_class.md.j2
+markdown: math_class_randomizer/templates/math_class.md
