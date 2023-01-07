@@ -7,6 +7,7 @@ import yaml
 from yaml.loader import SafeLoader
 import area
 import arithmetic
+import cross_multiply
 
 
 def create_file_from_jinja(template, markdown, context):
@@ -15,23 +16,31 @@ def create_file_from_jinja(template, markdown, context):
     with open(markdown, mode="w", encoding="utf-8") as results:
         results.write(template.render(context))
 
-# Open the file and load the file
-with open('aufgaben/ex_config.yaml') as f:
+
+with open('math_class_randomizer/ex_config.yaml') as f:
     config = yaml.load(f, Loader=SafeLoader)
 
-parser = argparse.ArgumentParser()
-# parser.add_argument("outfile", type=str)
-args = parser.parse_args()
+with open('math_class_randomizer/secret.yaml') as f:
+    secret = yaml.load(f, Loader=SafeLoader)
 
+# parser = argparse.ArgumentParser()
+# parser.add_argument("outfile", type=str)
+# args = parser.parse_args()
+
+multiplication_ex = arithmetic.ArithmeticEx(
+    config, config["division"]["count"]).excersises
+division_ex = arithmetic.ArithmeticEx(
+    config, config["division"]["count"]).excersises
 area_ex = area.AreaEx(config).excersises
-multiplication_ex = arithmetic.ArithmeticEx(config, config["division"]["count"]).excersises
-division_ex = arithmetic.ArithmeticEx(config, config["division"]["count"]).excersises
+cross_multiply_ex = cross_multiply.CrossMultiplyEx(
+    config, secret, config["cross_multiplication"]["count"]).excersises
 
 context = {
     "today": datetime.date.today().strftime(format="%d.%m.%Y"),
     "area": area_ex,
     "multi": multiplication_ex,
     "division": division_ex,
+    "crossmultiply": cross_multiply_ex,
 }
 
 markdown = ".".join(config["template"].split(".")[0:-1])

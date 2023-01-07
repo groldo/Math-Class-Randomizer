@@ -39,14 +39,10 @@ $${{ ex[0] }} \colon {{ ex[1] }} =$$
 \end{multicols}
 
 ## Dreisatz
-
-### Aufgabe 1
-
-6 Stücke  Butter wiegen zusammen 300 Gramm. Wie viel Gramm wiegen 4 Stücke?
-
-### Aufgabe 1
-
-In 5 Dachböden leben 40 Mäuse. Wie viele Mäuse leben in 13 Dachböden?
+{% for ex in crossmultiply %}
+### Aufgabe {{ loop.index }}
+{{ ex }}
+{% endfor %}
 
 ## Flächenberechnung
 
