@@ -37,12 +37,14 @@ $${{ ex[0] }} \cdot {{ ex[1] }} =$$
 $${{ ex[0] }} \colon {{ ex[1] }} =$$
 {% endfor %}
 \end{multicols}
+\newpage
 
 ## Dreisatz
 {% for ex in crossmultiply %}
 ### Aufgabe {{ loop.index }}
 {{ ex }}
 {% endfor %}
+\newpage
 
 ## Flächenberechnung
 
