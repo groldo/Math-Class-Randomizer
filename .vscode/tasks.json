@@ -1,0 +1,53 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "generate tex",
+            "type": "shell",
+            "command": "pandoc",
+            "args": ["${file}", "-o", "${file}.tex" ]
+        },
+        {
+            "label": "Create pdf with pandoc",
+            "type": "shell",
+            "command": "pandoc",
+            "args": [
+                "${file}",
+                "--data-dir", "/usr/share/pandoc/data",
+                "-F", "pandoc-crossref",
+                "-s", "--dpi=300", "--toc", "--listings", "--template", "eisvogel",
+                "-t", "pdf", "-o", "${file}.pdf"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Create slides with pandoc",
+            "type": "shell",
+            "command": "pandoc",
+            "args": [
+                "${file}",
+                "-s", "--dpi=300", "--slide-level", "2", "--toc", "--listings", "--columns=50", "-t", "beamer",
+                "-o", "${file}.pdf"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        }
+    ]
+}
