@@ -3,11 +3,10 @@ import subprocess
 import shlex
 import datetime
 import argparse
-import yaml
-from yaml.loader import SafeLoader
 import area
 import arithmetic
 import cross_multiply
+import config
 
 
 def create_file_from_jinja(template, markdown, context):
@@ -16,12 +15,7 @@ def create_file_from_jinja(template, markdown, context):
     with open(markdown, mode="w", encoding="utf-8") as results:
         results.write(template.render(context))
 
-
-with open('math_class_randomizer/ex_config.yaml') as f:
-    config = yaml.load(f, Loader=SafeLoader)
-
-with open('math_class_randomizer/secret.yaml') as f:
-    secret = yaml.load(f, Loader=SafeLoader)
+config = config.Config().config
 
 # parser = argparse.ArgumentParser()
 # parser.add_argument("outfile", type=str)
@@ -33,7 +27,7 @@ division_ex = arithmetic.ArithmeticEx(
     config, config["division"]["count"]).excersises
 area_ex = area.AreaEx(config).excersises
 cross_multiply_ex = cross_multiply.CrossMultiplyEx(
-    config, secret, config["cross_multiplication"]["count"]).excersises
+    config, config["secret"], config["cross_multiplication"]["count"]).excersises
 
 context = {
     "today": datetime.date.today().strftime(format="%d.%m.%Y"),
