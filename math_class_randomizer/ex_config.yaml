@@ -1,4 +1,6 @@
 ---
+openai:
+  enable: true
 arithmetic:
   min: 2
   max: 10
