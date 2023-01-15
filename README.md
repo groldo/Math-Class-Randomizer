@@ -12,11 +12,19 @@ random math excersise sheets
 Also see [out/example.pdf](out/example.pdf) for an example.
 Template is written in german.
 
-## secret
+## OpenAI
 
-Uses openai to prepare cross-multiplication text excersises.
+The app uses the ChatGPT API to create excercises.
+To opt out of it use:
 
-Therefore create a api token and write it into `math_class_randomizer/secret.yaml`:
+```python
+openai:
+    enable: false
+```
+
+in the `config.yaml`
+
+Otherwise create a api token and write it into `math_class_randomizer/secret.yaml`:
 
 ```yaml
 openaiapi: "your api key goes here ..."
