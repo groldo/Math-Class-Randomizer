@@ -7,40 +7,38 @@ import area
 import arithmetic
 import cross_multiply
 import config
+import context
 
 
 def create_file_from_jinja(template, markdown, context):
     environment = Environment(loader=FileSystemLoader("."))
+    #environment.trim_blocks = True
+    environment.lstrip_blocks = True
     template = environment.get_template(template)
     with open(markdown, mode="w", encoding="utf-8") as results:
         results.write(template.render(context))
 
+#parser = argparse.ArgumentParser()
+#parser.add_argument("--config", type=str, default="./config.yaml")
+#args = parser.parse_args()
+#print(args.config)
+
 config = config.Config().config
+context = context.Context()
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument("outfile", type=str)
-# args = parser.parse_args()
+context.add_to_context("area", area.AreaEx(config).excersises)
+context.add_to_context("multi", arithmetic.ArithmeticEx(
+    config, config["multiplication"]["count"]).excersises)
+context.add_to_context("division", arithmetic.ArithmeticEx(
+    config, config["division"]["count"]).excersises)
+if config["openai"]["enable"]:
+    context.add_to_context("crossmultiply", cross_multiply.CrossMultiplyEx(
+        config, config["secret"], config["cross_multiplication"]["count"]).excersises)
 
-multiplication_ex = arithmetic.ArithmeticEx(
-    config, config["division"]["count"]).excersises
-division_ex = arithmetic.ArithmeticEx(
-    config, config["division"]["count"]).excersises
-area_ex = area.AreaEx(config).excersises
-cross_multiply_ex = cross_multiply.CrossMultiplyEx(
-    config, config["secret"], config["cross_multiplication"]["count"]).excersises
+markdown = config["markdown"]
+pdf = config["pdf"]
 
-context = {
-    "today": datetime.date.today().strftime(format="%d.%m.%Y"),
-    "area": area_ex,
-    "multi": multiplication_ex,
-    "division": division_ex,
-    "crossmultiply": cross_multiply_ex,
-}
-
-markdown = ".".join(config["template"].split(".")[0:-1])
-pdf = ".".join(config["template"].split(".")[0:-2]) + ".pdf"
-
-create_file_from_jinja(config["template"], markdown, context)
+create_file_from_jinja(config["template"], markdown, context.context)
 
 cmd = "pandoc " + markdown + \
     " --data-dir /usr/share/pandoc/data "\
