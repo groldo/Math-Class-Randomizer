@@ -1,7 +1,7 @@
 ---
-title:  ''
+title:  'Aufgaben'
 author: ''
-date: 06.01.2023
+date: 15.01.2023
 keywords: []
 aspectratio: 169
 pagestyle: 'plain'
@@ -26,21 +26,21 @@ lang: de
 
 \begin{multicols}{2}
 
-$$8 \cdot 7 =$$
+$$6 \cdot 6 =$$
 
-$$7 \cdot 4 =$$
+$$5 \cdot 2 =$$
+
+$$8 \cdot 3 =$$
 
 $$8 \cdot 6 =$$
 
-$$5 \cdot 7 =$$
+$$8 \cdot 3 =$$
 
-$$6 \cdot 7 =$$
+$$4 \cdot 6 =$$
 
-$$4 \cdot 9 =$$
+$$5 \cdot 2 =$$
 
-$$4 \cdot 3 =$$
-
-$$9 \cdot 2 =$$
+$$7 \cdot 4 =$$
 
 \end{multicols}
 
@@ -48,33 +48,38 @@ $$9 \cdot 2 =$$
 
 \begin{multicols}{2}
 
-$$8 \colon 2 =$$
+$$7 \colon 6 =$$
 
-$$7 \colon 7 =$$
+$$3 \colon 7 =$$
+
+$$9 \colon 6 =$$
+
+$$3 \colon 4 =$$
+
+$$2 \colon 9 =$$
+
+$$6 \colon 7 =$$
 
 $$2 \colon 5 =$$
 
-$$7 \colon 9 =$$
-
-$$9 \colon 3 =$$
-
-$$8 \colon 6 =$$
-
-$$4 \colon 8 =$$
-
-$$6 \colon 9 =$$
+$$3 \colon 6 =$$
 
 \end{multicols}
+\newpage
 
 ## Dreisatz
 
 ### Aufgabe 1
 
-6 Stücke  Butter wiegen zusammen 300 Gramm. Wie viel Gramm wiegen 4 Stücke?
 
-### Aufgabe 1
+Der Bäcker verkauft 1,5 Kilo Brot für 8 Euro. Wie viel kostet 1 Kilo Brot?
 
-In 5 Dachböden leben 40 Mäuse. Wie viele Mäuse leben in 13 Dachböden?
+### Aufgabe 2
+
+
+Kurt hat 100 Euro Weihnachtsgeld bekommen. Er gibt 40 Euro für eine neue Konsole aus und spart 25 Euro. Wie viel hat Kurt jetzt noch übrig?
+
+\newpage
 
 ## Flächenberechnung
 
@@ -97,12 +102,12 @@ Berechne die Fläche
     %\draw[gray,thick,-] (\xone, 0) -- (\xtwo, 0) node[right] {};
     %\draw[gray,thick,-] (0, \yone) -- (0, \ytwo) node[above] {};
     % rectangle
-    \draw[black,very thick] (0, 3) rectangle (9, 0);
-    \draw[black,xshift=0.5*9 cm] (0,0) -- (0,0) 
-        node[below] { 540 };
+    \draw[black,very thick] (0, 4) rectangle (7, 0);
+    \draw[black,xshift=0.5*7 cm] (0,0) -- (0,0) 
+        node[below] { 350 };
 
-    \draw[black,yshift=0.5*3 cm] (0,0) -- (0,0) 
-        node[left] { 180 };
+    \draw[black,yshift=0.5*4 cm] (0,0) -- (0,0) 
+        node[left] { 200 };
 
 \end{scope}
 \end{tikzpicture}
@@ -126,12 +131,12 @@ Berechne die Fläche
     %\draw[gray,thick,-] (\xone, 0) -- (\xtwo, 0) node[right] {};
     %\draw[gray,thick,-] (0, \yone) -- (0, \ytwo) node[above] {};
     % rectangle
-    \draw[black,very thick] (0, 6) rectangle (8, 0);
-    \draw[black,xshift=0.5*8 cm] (0,0) -- (0,0) 
-        node[below] { 240 };
+    \draw[black,very thick] (0, 7) rectangle (4, 0);
+    \draw[black,xshift=0.5*4 cm] (0,0) -- (0,0) 
+        node[below] { 320 };
 
-    \draw[black,yshift=0.5*6 cm] (0,0) -- (0,0) 
-        node[left] { 180 };
+    \draw[black,yshift=0.5*7 cm] (0,0) -- (0,0) 
+        node[left] { 560 };
 
 \end{scope}
 \end{tikzpicture}
