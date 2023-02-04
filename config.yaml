@@ -1,15 +1,15 @@
 ---
 openai:
-  enable: true
+  enable: false
 multiplication:
   count: 8
   min: 2
-  max: 10
+  max: 20
   difficulty: 1
 division:
   count: 8
   min: 2
-  max: 10
+  max: 20
   difficulty: 1
 area:
   count: 2
