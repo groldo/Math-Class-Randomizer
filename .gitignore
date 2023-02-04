@@ -1,2 +1,5 @@
 __pycache__
 secret.yaml
+out/*
+!out/example.md
+!out/example.pdf
