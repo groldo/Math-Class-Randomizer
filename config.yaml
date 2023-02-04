@@ -1,20 +1,25 @@
 ---
 openai:
   enable: true
-arithmetic:
+multiplication:
+  count: 8
   min: 2
   max: 10
   difficulty: 1
-multiplication:
-  count: 8
 division:
   count: 8
+  min: 2
+  max: 10
+  difficulty: 1
 area:
   count: 2
   difficulty: 1
-cross_multiplication:
+cross_multiplication_text:
   count: 2
   openai_prompt: "schreibe eine dreisatz aufgabe mit text ohne lösung für die vierte klasse"
+procent_text:
+  count: 2
+  openai_prompt: "Schreibe eine Textaufgabe mit Prozentrechnung ohne Lösung für die 5. Klasse"
 template: templates/math_class.md.j2
 markdown: out/math_class.md
 pdf: out/math_class.pdf

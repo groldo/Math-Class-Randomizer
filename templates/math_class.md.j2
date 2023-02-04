@@ -39,10 +39,47 @@ $${{ ex[0] }} \colon {{ ex[1] }} =$$
 \end{multicols}
 \newpage
 
-## Dreisatz
-{% for ex in crossmultiply %}
+## Dreisatzaufgaben
+{% for ex in crossmultiplytext %}
 ### Aufgabe {{ loop.index }}
 {{ ex }}
+{{ raw }}
+```{=latex}
+% draw space for notes
+\begin{tikzpicture}[scale=.35]\footnotesize
+\pgfmathsetmacro{\xone}{-.4}
+\pgfmathsetmacro{\xtwo}{ 40.4}
+\pgfmathsetmacro{\yone}{-.4}
+\pgfmathsetmacro{\ytwo}{10.4}
+\begin{scope}
+    % grid
+    \draw[step=1cm,gray,very thin] (\xone,\yone) grid (\xtwo,\ytwo);
+\end{scope}
+\end{tikzpicture}
+```
+{{ endraw }}
+{% endfor %}
+\newpage
+
+## Prozentaufgaben
+{% for ex in procenttext %}
+### Aufgabe {{ loop.index }}
+{{ ex }}
+{{ raw }}
+```{=latex}
+% draw space for notes
+\begin{tikzpicture}[scale=.35]\footnotesize
+\pgfmathsetmacro{\xone}{-.4}
+\pgfmathsetmacro{\xtwo}{ 40.4}
+\pgfmathsetmacro{\yone}{-.4}
+\pgfmathsetmacro{\ytwo}{10.4}
+\begin{scope}
+    % grid
+    \draw[step=1cm,gray,very thin] (\xone,\yone) grid (\xtwo,\ytwo);
+\end{scope}
+\end{tikzpicture}
+```
+{{ endraw }}
 {% endfor %}
 \newpage
 

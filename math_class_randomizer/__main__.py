@@ -1,11 +1,9 @@
 from jinja2 import Environment, FileSystemLoader
 import subprocess
 import shlex
-import datetime
-import argparse
 import area
 import arithmetic
-import cross_multiply
+import textex
 import config
 import context
 
@@ -26,14 +24,31 @@ def create_file_from_jinja(template, markdown, context):
 config = config.Config().config
 context = context.Context()
 
-context.add_to_context("area", area.AreaEx(config).excersises)
-context.add_to_context("multi", arithmetic.ArithmeticEx(
-    config, config["multiplication"]["count"]).excersises)
-context.add_to_context("division", arithmetic.ArithmeticEx(
-    config, config["division"]["count"]).excersises)
+context.add_to_context(
+    "area", 
+    area.AreaEx(config).excersises
+    )
+context.add_to_context(
+    "multi", arithmetic.ArithmeticEx(config["multiplication"]).excersises
+    )
+context.add_to_context(
+    "division", 
+    arithmetic.ArithmeticEx(config["division"]).excersises
+    )
+
 if config["openai"]["enable"]:
-    context.add_to_context("crossmultiply", cross_multiply.CrossMultiplyEx(
-        config, config["secret"], config["cross_multiplication"]["count"]).excersises)
+    context.add_to_context(
+        "crossmultiplytext", 
+        textex.TextEx(
+            config["cross_multiplication_text"],
+            config["secret"]["openaiapi"]).excersises
+        )
+    context.add_to_context(
+        "procenttext", 
+        textex.TextEx(
+            config["procent_text"],
+            config["secret"]["openaiapi"]).excersises
+        )
 
 markdown = config["markdown"]
 pdf = config["pdf"]
