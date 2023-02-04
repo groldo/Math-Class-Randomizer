@@ -15,6 +15,6 @@ class ArithmeticEx(Excersise):
         The number of values returned can be controlled by the `count` parameter.
         """
         return [
-            random.randrange(self.config["min"], self.config["max"])
+            random.randrange(self.config["min"], self.config["max"]+1)
             for _ in range(count)
         ]
