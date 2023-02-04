@@ -68,11 +68,20 @@ Berechne die Fläche
     %\draw[gray,thick,-] (0, \yone) -- (0, \ytwo) node[above] {};
     % rectangle
     \draw[black,very thick] (0, {{ excersise["ysize"] }}) rectangle ({{ excersise["xsize"] }}, 0);
-    \draw[black,xshift=0.5*{{ excersise["xsize"] }} cm] (0,0) -- (0,0) 
-        node[below] {{ "{" }} {{ excersise["xval"] }} {{ "}" }};
 
-    \draw[black,yshift=0.5*{{ excersise["ysize"] }} cm] (0,0) -- (0,0) 
+    % rectangle notation
+    % x axis notation
+
+    \draw[black,-,xshift=0.5*{{ excersise["xsize"] }} cm,yshift=-0.5cm] (0, 0) -- (0, 0) 
+        node[below] {{ "{" }} {{ excersise["xval"] }} {{ "}" }};
+    \draw[gray,thick,|-|] 
+        (0, -0.5) -- ({{ excersise["xsize"] }}, -0.5) node[right] {};
+
+    % y axis notation
+    \draw[black,yshift=0.5*{{ excersise["ysize"] }} cm, xshift=-0.5cm] (0, 0) -- (0, 0) 
         node[left] {{ "{" }} {{ excersise["yval"] }} {{ "}" }};
+    \draw[gray,thick,|-|] 
+        (-0.5, 0) -- (-0.5, {{ excersise["ysize"] }}) node[right] {};
 
 \end{scope}
 \end{tikzpicture}
