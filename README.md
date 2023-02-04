@@ -28,7 +28,7 @@ openai:
 
 in the `config.yaml`
 
-Otherwise create a api token and write it into `math_class_randomizer/secret.yaml`:
+Otherwise create an api token and write it into `math_class_randomizer/secret.yaml`:
 
 ```yaml
 openaiapi: "your api key goes here ..."
